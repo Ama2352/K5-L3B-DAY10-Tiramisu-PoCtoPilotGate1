@@ -178,15 +178,17 @@ python3 -m lab10.gate --run runs/<mã lần chạy>/report.json
 
 Số câu, bước trên thẻ và mục phiếu đi cùng nhau: câu 3.0 = bước 0 = C1 · câu 3.1 = bước 1–4 = C2, C3, C4 · câu 3.2–3.4 = bước 4 = C5, C6 · câu 3.5–3.6 = bước 5–7 = C7, C8 · câu 3.7 = bước 8 = C9–C11 · quyết định v2 = bước 9 = C12.
 
-**125–135 · Nhận thẻ, đo ngay trước khi sửa (câu 3.0).** Chờ Lab Coach báo đã phát thẻ rồi chạy lệnh nhận thẻ. Mỗi cặp bàn cử một người bốc số S1–S8; bàn **chỉ làm đúng thẻ đã bốc** (`incidents/Sx/card.md`). Ghi số vào dòng `Thẻ đã bốc:` ở đầu Phiếu C, rồi chạy lệnh 6 (thay `Sx` bằng số thẻ):
+**125–135 · Nhận thẻ, đo ngay trước khi sửa (câu 3.0).** Lab Coach báo **số thẻ của bàn** (S1–S8) và mời tài khoản GitHub của các thành viên vào repo thẻ riêng tư (quyền Read; ai chưa ở trong org thì bấm chấp nhận lời mời trong email hoặc thông báo GitHub). Bàn **chỉ lấy và chỉ làm đúng thẻ của bàn**. Ghi số vào dòng `Thẻ đã bốc:` ở đầu Phiếu C. Một người chạy lệnh nhận thẻ rồi lệnh 6 (thay `Sx` bằng số thẻ, cả bốn chỗ), sau đó `git push -u origin main` để cả bàn kéo về:
 
 ```bash
-git pull --no-rebase --no-edit --allow-unrelated-histories -X ours upstream main
+git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main && git checkout FETCH_HEAD -- incidents/Sx && git commit -m "Nhận thẻ Sx"
 python3 -m lab10.grade --incident Sx
 ```
 
+Lệnh nhận thẻ chỉ chép thư mục `incidents/Sx/` (4 file) vào repo của bàn, không gộp lịch sử git. Nếu Lab Coach báo phát thẻ qua repo mẫu (phương án dự phòng), dùng `git pull --no-rebase --no-edit --allow-unrelated-histories -X ours upstream main` thay cho dòng đầu.
+
 - **Điền:** C0 (mã prepared), C1 (cổng vòng 1 đỡ được gì; đối chiếu pre-mortem bằng bút khác màu).
-- **Xong khi:** `ls incidents/` thấy `S1` … `S8` và có `incident-cards.md`; report in `1 integrity | ✅` và dòng `Thẻ đã bốc … khớp`. Lỗi khi kéo thẻ: [FAQ](docs/guide.md#faq).
+- **Xong khi:** `ls incidents/Sx` thấy đủ 4 file (`card.md`, `card.json`, `tickets.jsonl`, `world_patch.json`); report in `1 integrity | ✅` và dòng `Thẻ đã bốc … khớp`. Lỗi khi kéo thẻ: [FAQ](docs/guide.md#faq).
 
 **135–155 · Phân tích (câu 3.1–3.4).** Dò ít nhất hai ticket hỏng theo hai kiểu khác nhau:
 
