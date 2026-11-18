@@ -32,7 +32,7 @@ Demo cuối buổi so sánh ba mốc **base · prepared · after**: cổng bàn 
 | Demo ba mốc | 200–230 | 30' | |
 | Tổng kết, đẩy bài lần cuối | 230–240 | 10' | |
 
-## Ba vai trong bàn (4–5 người; vai nào cũng có việc ở cả hai vòng)
+## Ba vai trong bàn (3–4 người; vai nào cũng có việc ở cả hai vòng)
 
 | Vai | Cầm bút ở vòng 1 | Cầm bút ở vòng 2 | File chính |
 |---|---|---|---|
