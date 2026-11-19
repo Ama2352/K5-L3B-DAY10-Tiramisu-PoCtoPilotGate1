@@ -2,19 +2,19 @@
 
 Thư mục này cố ý để trống lúc đầu buổi. Đây là chỗ **gói sự cố của bàn** sẽ xuất hiện.
 
-**Phút 125**, sau giờ nghỉ, Lab Coach báo **số thẻ của bàn** (S1–S8) và mời tài khoản GitHub của các thành viên vào repo thẻ riêng tư (quyền Read). Ai chưa ở trong org GitHub của khoá thì mở email hoặc https://github.com/notifications và bấm chấp nhận lời mời.
+**Phút 125**, sau giờ nghỉ, Lab Coach báo **số thẻ của bàn** (S1–S8) và mở repo thẻ (chuyển sang công khai). Không cần tài khoản GitHub, lời mời hay gắn remote nào.
 
-1. Từ thư mục gốc repo của bàn (nhánh `main`, đã commit hết), chạy lệnh sau. Thay `Sx` bằng số thẻ của bàn (cả ba chỗ):
+1. Từ thư mục gốc repo của bàn (nhánh `main`, đã commit hết), chạy lần lượt ba lệnh sau, gõ từng dòng. Thay `Sx` bằng số thẻ của bàn (cả hai chỗ):
 
    ```bash
-   git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main && git checkout FETCH_HEAD -- incidents/Sx && git commit -m "Nhận thẻ Sx"
+   git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main
+   git checkout FETCH_HEAD -- incidents/Sx
+   git commit -m "Nhận thẻ Sx"
    ```
 
-   `git fetch` tải repo thẻ về (chưa đổi gì trong bài); `git checkout FETCH_HEAD -- incidents/Sx` chép **đúng thư mục thẻ của bàn**; `git commit` lưu lại. Lệnh không gộp lịch sử git, không đụng bài của bàn. Rồi `git push -u origin main` để các bạn khác trong bàn `git pull` về.
+   `git fetch` tải repo thẻ về theo URL (không cần gắn remote, chưa đổi gì trong bài); `git checkout FETCH_HEAD -- incidents/Sx` chép **đúng thư mục thẻ của bàn**; `git commit` lưu lại. Lệnh không gộp lịch sử git, không đụng bài của bàn. Rồi `git push -u origin main` để các bạn khác trong bàn `git pull` về.
 
-   Báo `Repository not found` / `Authentication failed`: tài khoản GitHub trên máy chưa được mời hoặc chưa chấp nhận lời mời, báo Lab Coach. Nếu máy báo `Please tell me who you are`, làm bước 2b ở mục 2 của `README.md` rồi chạy lại.
-
-   **Dự phòng:** nếu Lab Coach báo phát thẻ qua **repo mẫu**, chạy `git pull --no-rebase --no-edit --allow-unrelated-histories -X ours upstream main` (nếu báo `'upstream' does not appear to be a git repository`, gắn repo mẫu theo bước 2a ở mục 2 của `README.md`). Cách này tải cả 8 thẻ và file `incident-cards.md`; bàn vẫn chỉ làm thẻ của mình.
+   Báo `Repository not found`, `Authentication failed` hoặc hỏi mật khẩu: repo thẻ chưa được mở (chưa tới phút 125) hoặc gõ sai URL. Không cần đăng nhập: bấm Ctrl+C, chờ Lab Coach báo rồi chạy lại. Nếu máy báo `Please tell me who you are`, làm bước 2a ở mục 2 của `README.md` rồi chạy lại. Máy không chạy được git: lấy thẻ bằng trình duyệt (FAQ trong `docs/guide.md`).
 
 2. Bạn sẽ thấy thư mục mới `incidents/Sx/`.
 3. Bàn **chỉ làm đúng thẻ của bàn**. Mở `incidents/Sx/card.md` và đọc mặt trước.

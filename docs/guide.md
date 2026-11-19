@@ -20,18 +20,19 @@ Lab đã được chạy thử với Python 3.9.6 có sẵn trên macOS và Pyth
 
 Gõ `git --version` để kiểm tra Git. Nếu không hiện số phiên bản, báo Lab Coach. Trên macOS mới, `python3` hoặc `git` có thể mở cửa sổ cài Command Line Tools. Cài xong thì chạy lại. Trên Windows, thử `python` nếu `python3` không chạy.
 
-Trưởng nhóm bấm **Use this template** (không dùng **Fork**) ở repo mẫu `https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_student`. Đặt tên theo dạng `K5-<L3A|L3B>-DAY10-<TenNhom>-PoCtoPilotGate1`, chọn đúng lớp, ví dụ `K5-L3A-DAY10-XXX-PoCtoPilotGate1`. Viết phần `TenNhom` không dấu, không khoảng trắng, như `NhomSao`. Chọn **Public** (Công khai) để team chấm đọc được bài sau buổi học; không cần mời tài khoản team chấm. Vào **Settings → Collaborators** (Người cộng tác) → **Add people** (Thêm người) để mời các bạn trong bàn với quyền **Write** (Ghi) để cùng push. Nếu thiếu thông tin, hỏi Lab Coach.
+Trưởng nhóm mở repo mẫu `https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_student` và bấm **Fork** → **Create a new fork**. Ở ô **Repository name**, đặt tên theo dạng `K5-<L3A|L3B>-DAY10-<TenNhom>-PoCtoPilotGate1`, chọn đúng lớp, ví dụ `K5-L3A-DAY10-XXX-PoCtoPilotGate1`; quên đổi thì vào **Settings → General → Repository name** đổi lại. Viết phần `TenNhom` không dấu, không khoảng trắng, như `NhomSao`. Fork của repo mẫu (công khai) luôn ở chế độ **Public** (Công khai) và không chuyển sang riêng tư được: team chấm đọc được bài qua link, không cần mời tài khoản team chấm, và bàn khác cũng thấy repo của bàn trong danh sách fork. Vào **Settings → Collaborators** (Người cộng tác) → **Add people** (Thêm người) để mời các bạn trong bàn với quyền **Write** (Ghi) để cùng push. Không mở Pull request về repo mẫu và không bấm **Sync fork → Discard commits**. Nếu GitHub báo tài khoản đã có fork của repo mẫu (mỗi tài khoản chỉ có một fork của một repo), đổi tên fork cũ đúng dạng, hoặc để một bạn khác trong bàn fork. Nếu thiếu thông tin, hỏi Lab Coach.
 
-Mở Terminal trên macOS hoặc Linux, hoặc PowerShell trên Windows. Chạy mọi lệnh từ thư mục lab, nơi có `README.md`, sau khi đã clone và vào thư mục của bàn. Nếu gặp `already exists` khi gắn `upstream`, chỉ cần dùng `git remote -v` để kiểm tra. `origin` trỏ về repo của bàn và `upstream` trỏ về repo mẫu. Thiếu `upstream` thì không nhận được thẻ ở phút 125.
+Mở Terminal trên macOS hoặc Linux, hoặc PowerShell trên Windows. Chạy mọi lệnh từ thư mục lab, nơi có `README.md`, sau khi đã clone và vào thư mục của bàn. Clone về chỉ có remote `origin` trỏ về repo của bàn. Vậy là đủ: không cần gắn thêm remote nào, kể cả lúc nhận thẻ ở phút 125.
 
-Gắn `upstream` một lần, ngay sau khi clone, **dù bàn tạo repo bằng Fork hay Use this template** (clone về chỉ có `origin`):
+Ở phút 125, Lab Coach chuyển repo thẻ `K5_L3_Day10_PoC-to-Pilot_Gate1_cards` sang công khai và báo số thẻ của bàn. Lệnh nhận thẻ lấy **đúng thư mục thẻ của bàn** bằng URL, không cần đăng nhập, lời mời hay remote. Gõ từng dòng, thay `Sx` bằng số thẻ:
 
 ```bash
-git remote add upstream https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_student.git
-git remote -v
+git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main
+git checkout FETCH_HEAD -- incidents/Sx
+git commit -m "Nhận thẻ Sx"
 ```
 
-Ở phút 125, lệnh nhận thẻ lấy **đúng thư mục thẻ của bàn** từ repo thẻ riêng tư (Lab Coach mời tài khoản GitHub của bàn trước, quyền Read): `git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main && git checkout FETCH_HEAD -- incidents/Sx && git commit -m "Nhận thẻ Sx"` (thay `Sx` bằng số thẻ). Lệnh chỉ chép `incidents/Sx/`, không gộp lịch sử git. Phương án dự phòng, khi Lab Coach báo phát thẻ qua repo mẫu: `git pull --no-rebase --no-edit --allow-unrelated-histories -X ours upstream main` (repo tạo bằng *Use this template* có lịch sử git không liên quan tới repo mẫu nên cần `--allow-unrelated-histories`; `-X ours` giữ bài của bàn khi có chỗ trùng).
+Lệnh chỉ chép `incidents/Sx/`, không gộp lịch sử git, không đụng bài của bàn. Trước phút 125 repo thẻ còn riêng tư nên `git fetch` báo `Repository not found`; đó là đúng thiết kế.
 
 Đặt danh tính Git trong thư mục repo. Thay `<mã học viên của trưởng nhóm>` bằng mã thật. Địa chỉ trong `user.email` là địa chỉ giả, không dùng email cá nhân.
 
@@ -76,7 +77,7 @@ OK
 | `lab10/helpers.py` | Các hàm tra cứu có sẵn (độ trễ theo hệ thống theo dõi, chính sách đang hiệu lực, số tiền được hoàn). Gọi được từ `guards.py` | Khoá bằng hash |
 | `lab10/` (các file còn lại) | Trợ lý, bộ đo, bộ tự kiểm tra | **Không. File bị khoá, sửa là bị phát hiện** |
 | `data/` | Dữ liệu giả: đơn hàng, khách, hãng vận chuyển, shop, kho, chính sách, nhân viên, số liệu vận hành, 22 ticket nền | Khoá bằng hash |
-| `incidents/` | Chỗ dành cho gói sự cố. Đầu buổi chỉ có một file `README.md` giải thích. Thẻ và dữ liệu sự cố tới ở phút 125 từ repo mẫu (lệnh nhận thẻ ở `incidents/README.md`) | Khoá bằng hash |
+| `incidents/` | Chỗ dành cho gói sự cố. Đầu buổi chỉ có một file `README.md` giải thích. Thẻ và dữ liệu sự cố tới ở phút 125 từ repo thẻ (lệnh nhận thẻ ở `incidents/README.md`) | Khoá bằng hash |
 | `submission/` | Bài nộp của bàn. Có sẵn hướng dẫn và mẫu `submission.json` | **Điền `submission.json`**. Lệnh 7 gom phần còn lại |
 | `tests/` | Bài kiểm tra cài đặt ở mục 2 | Khoá bằng hash |
 | `runs/` | Kết quả mỗi lần chạy, máy tự ghi. Mỗi lần chạy một thư mục mang mã lần chạy. `journal.jsonl` là nhật ký | Không sửa tay |
@@ -133,7 +134,7 @@ python3 -m unittest discover -s tests
 
 **Chữ tiếng Việt hiện thành ký tự lạ trên Windows.** Chạy `chcp 65001` trong cửa sổ dòng lệnh rồi chạy lại lệnh. Cách này chưa được thử trên Windows khi soạn lab. Nếu vẫn lỗi, báo Lab Coach.
 
-**Báo `TỪ CHỐI KIỂM TRA: chưa có gói sự cố S…` hoặc `Chưa có gói sự cố S…`.** Máy bạn chưa có thư mục `incidents/Sx` của thẻ đó. Trước phút 125 thì đây là bình thường. Sau khi Lab Coach báo số thẻ và đã mời bàn vào repo thẻ ở phút 125, chạy `git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main && git checkout FETCH_HEAD -- incidents/Sx && git commit -m "Nhận thẻ Sx"` (thay `Sx`) rồi thử lại. Thư mục `incidents/` chỉ cần có thẻ của bàn.
+**Báo `TỪ CHỐI KIỂM TRA: chưa có gói sự cố S…` hoặc `Chưa có gói sự cố S…`.** Máy bạn chưa có thư mục `incidents/Sx` của thẻ đó. Trước phút 125 thì đây là bình thường. Sau khi Lab Coach báo số thẻ và đã mở repo thẻ ở phút 125, chạy lần lượt `git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main`, `git checkout FETCH_HEAD -- incidents/Sx`, `git commit -m "Nhận thẻ Sx"` (thay `Sx`) rồi thử lại. Thư mục `incidents/` chỉ cần có thẻ của bàn.
 
 **Báo `TỪ CHỐI KIỂM TRA: thiếu số thẻ` hoặc `không phải số thẻ hợp lệ`.** Lệnh 6 phải có `--incident` kèm đúng số bàn bốc được, từ `S1` tới `S8`. Ví dụ: `python3 -m lab10.grade --incident S3`.
 
@@ -143,17 +144,17 @@ python3 -m unittest discover -s tests
 
 **Báo `File operating_gates.json không phải JSON hợp lệ` hoặc `có giá trị chưa dùng được`.** Bạn gõ thiếu dấu phẩy, dấu ngoặc, hoặc điền sai kiểu. Lệnh in dòng bị lỗi và nói cần sửa gì. Đặt chữ trong dấu `"…"`. Viết số và các giá trị `true`, `false`, `null` không kèm dấu `"`.
 
-**(Dự phòng, phát thẻ qua repo mẫu) `git pull` báo `fatal: Need to specify how to reconcile divergent branches`.** Bạn đã gõ thiếu phần sau. Chạy đúng lệnh nhận thẻ: `git pull --no-rebase --no-edit --allow-unrelated-histories -X ours upstream main`. Lệnh này gộp thẻ mới vào bài của bàn mà không mở trình soạn thảo.
+**Lệnh nhận thẻ hoặc `git commit` báo `Please tell me who you are`.** Bàn chưa làm bước 2a ở mục 2 của README. Làm bước đó rồi chạy lại lệnh.
 
-**Lệnh nhận thẻ hoặc `git commit` báo `Please tell me who you are`.** Bàn chưa làm bước 2b ở mục 2 của README. Làm bước đó rồi chạy lại lệnh.
-
-**(Dự phòng, phát thẻ qua repo mẫu) `git pull` nhận thẻ báo xung đột (conflict) hoặc lỗi khác.** Đừng xoá file, đừng tự sửa dấu `<<<<<<<`. Chạy `git merge --abort` để huỷ lần gộp dở, rồi chạy đúng đủ lệnh: `git pull --no-rebase --no-edit --allow-unrelated-histories -X ours upstream main`. Cờ `-X ours` ưu tiên nội dung của bàn ở phần xung đột khi lấy thẻ. Nếu báo `fatal: refusing to merge unrelated histories`, là thiếu `--allow-unrelated-histories`. Nếu báo `'upstream' does not appear to be a git repository`, bàn chưa làm bước 2a ở mục 2 của README. Gắn bằng lệnh `git remote add upstream https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_student.git`. Nếu vẫn lỗi, gọi Lab Coach (đừng tự xoá gì).
-
-**`git fetch` repo thẻ báo `Repository not found`, `Authentication failed` hoặc hỏi mật khẩu.** Tài khoản GitHub đang dùng trên máy chưa được mời, chưa bấm chấp nhận lời mời (xem email hoặc https://github.com/notifications), hoặc git đang đăng nhập bằng tài khoản khác. Báo Lab Coach tên tài khoản GitHub của bạn. Trong lúc chờ, một bạn khác trong bàn đã có quyền chạy lệnh nhận thẻ rồi push; cả bàn `git pull` về.
+**`git fetch` repo thẻ báo `Repository not found`, `Authentication failed` hoặc hỏi tên đăng nhập, mật khẩu.** Repo thẻ chưa được mở (chưa tới phút 125, hoặc Lab Coach chưa chuyển sang công khai), hoặc URL gõ sai. Nhận thẻ không cần đăng nhập: bấm Ctrl+C nếu máy hỏi mật khẩu, kiểm lại URL, chờ Lab Coach báo đã mở rồi chạy lại. Nếu vẫn lỗi, một bạn khác trong bàn chạy lệnh nhận thẻ rồi push, cả bàn `git pull` về; hoặc lấy thẻ bằng trình duyệt (mục dưới).
 
 **`git checkout FETCH_HEAD -- incidents/Sx` báo `did not match any file(s)`.** Sai số thẻ hoặc gõ chữ `s` thường. Dùng đúng `S1` … `S8`.
 
-**Sau khi nhận thẻ tôi thấy cả 8 thẻ. Làm thẻ nào?** (Chỉ xảy ra khi phát thẻ qua repo mẫu.) Chỉ thẻ có số của bàn. Các thẻ khác là của bàn khác.
+**PowerShell báo `The token '&&' is not a valid statement separator`.** PowerShell cũ trên Windows không hiểu `&&`. Gõ từng lệnh trên một dòng riêng, chạy xong lệnh này mới gõ lệnh sau.
+
+**Không chạy được lệnh nhận thẻ (máy không có git, mạng chặn git…). Lấy thẻ bằng trình duyệt.** Sau khi Lab Coach báo đã mở repo thẻ, mở `https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards/tree/main/incidents/Sx` (thay `Sx`). Mở lần lượt 4 file `card.md`, `card.json`, `tickets.jsonl`, `world_patch.json`, bấm nút **Download raw file** và lưu vào thư mục `incidents/Sx/` (tự tạo thư mục nếu chưa có). Không copy-paste nội dung: chỉ lệch một ký tự là `1 integrity` báo ❌. Rồi chạy `git add incidents/Sx` và `git commit -m "Nhận thẻ Sx"`.
+
+**Sau khi nhận thẻ tôi thấy cả 8 thẻ. Làm thẻ nào?** (Xảy ra khi gõ thiếu `/Sx` ở lệnh `git checkout`, hoặc tải cả thư mục `incidents` bằng trình duyệt.) Chỉ thẻ có số của bàn. Các thẻ khác là của bàn khác.
 
 **Report ghi "Thẻ đã bốc … chưa ghi" hoặc "KHÔNG KHỚP".** Mở `templates/form-c-incident.md`, sửa dòng `Thẻ đã bốc:` ở đầu phiếu thành đúng số đã bốc (ví dụ `S3`), và chạy lệnh 6 bằng đúng số đó.
 
@@ -204,7 +205,7 @@ python3 -m unittest discover -s tests
 | **Monitor** (chỉ số theo dõi) | Một con số tính từ hoạt động của trợ lý, dùng để phát hiện sớm khi có chuyện bất thường |
 | **Ticket** | Một yêu cầu của khách gửi tới bộ phận chăm sóc khách hàng |
 | **Thẻ sự cố** | Một tình huống có chuyện xảy ra với trợ lý, đánh số S1 tới S8. Mỗi bàn bốc một số ở phút 125 và chỉ làm thẻ đó |
-| **Lệnh nhận thẻ** | Ở phút 125, bàn chạy `git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main && git checkout FETCH_HEAD -- incidents/Sx && git commit -m "Nhận thẻ Sx"`: `git fetch` tải repo thẻ riêng tư về (chưa đổi gì trong bài), `git checkout FETCH_HEAD -- incidents/Sx` chép đúng thư mục thẻ của bàn, `git commit` lưu lại. Dự phòng khi phát thẻ qua repo mẫu: `git pull --no-rebase --no-edit --allow-unrelated-histories -X ours upstream main` (gộp thẻ từ `upstream`; `-X ours` ưu tiên nội dung của bàn ở phần xung đột). |
+| **Lệnh nhận thẻ** | Ở phút 125, Lab Coach mở repo thẻ và bàn chạy lần lượt `git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main`, `git checkout FETCH_HEAD -- incidents/Sx`, `git commit -m "Nhận thẻ Sx"`: `git fetch` tải repo thẻ về theo URL (không cần gắn remote, chưa đổi gì trong bài), `git checkout FETCH_HEAD -- incidents/Sx` chép đúng thư mục thẻ của bàn, `git commit` lưu lại. |
 | **Seed** | Số thứ tự của một lần chạy lặp. Mỗi ticket được chạy 5 lần (11, 22, 33, 44, 55) để xem trợ lý có ổn định không |
 | **Trace** | Bản ghi từng bước trợ lý đã làm với một ticket (lệnh 3) |
 | **Sổ cái** | Nơi ghi các khoản hoàn tiền đã thực hiện. Đã ghi thì coi như tiền đã đi |
@@ -374,12 +375,13 @@ Lệnh chỉ chạy được **sau phút 125**, khi bàn đã nhận thẻ. Nế
 ```
 TỪ CHỐI KIỂM TRA: chưa có gói sự cố S1 trên máy này (thiếu incidents/S1/tickets.jsonl, incidents/S1/world_patch.json).
   Thẻ sự cố chỉ được phát ở phút 125 của buổi học. Việc cần làm:
-    1. Chờ Lab Coach báo đã mời bàn vào repo thẻ, rồi chạy (ở gốc repo của bàn, đã commit hết):
-         git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main && git checkout FETCH_HEAD -- incidents/S1 && git commit -m "Nhận thẻ S1"
-       (Lab Coach báo phát thẻ qua repo mẫu thay vì repo thẻ: git pull --no-rebase --no-edit --allow-unrelated-histories -X ours upstream main)
+    1. Chờ Lab Coach báo số thẻ và báo đã mở repo thẻ, rồi chạy lần lượt từng dòng (ở gốc repo của bàn, đã commit hết):
+         git fetch https://github.com/VinUni-AI20k/K5_L3_Day10_PoC-to-Pilot_Gate1_cards.git main
+         git checkout FETCH_HEAD -- incidents/S1
+         git commit -m "Nhận thẻ S1"
     2. Kiểm tra đã có thư mục incidents/S1/ (4 file).
     3. Chạy lại:  python3 -m lab10.grade --incident S1
-  git fetch báo không có quyền: tài khoản GitHub của bạn chưa được mời, báo Lab Coach. Chưa có gì được kiểm tra, chưa có report nào được ghi.
+  git fetch báo Repository not found hoặc hỏi mật khẩu: repo thẻ chưa được mở, chờ Lab Coach báo rồi chạy lại (không cần đăng nhập). Chưa có gì được kiểm tra, chưa có report nào được ghi.
 ```
 
 Mẫu sau dùng một bản chụp vẫn giữ cổng mặc định, nên các chỉ số giống nhau ở cả ba mốc. Mã lần chạy và đường dẫn thực tế sẽ khác.
