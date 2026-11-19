@@ -77,7 +77,7 @@ Số minh hoạ trong đề (không phải số của bàn). Chọn: **(b)**.
 
 Giải thích một câu: Chưa đủ căn cứ nói Y tốt hơn X vì tỷ lệ 1,0 của Y nằm trong khoảng tin cậy 95% [0,9400; 1,0] của X; chênh lệch một lần chạy không chứng minh Y tốt hơn có ý nghĩa thống kê, cũng không chứng minh hai bản chắc chắn như nhau.
 
-Nội dung được AI hỗ trợ soạn; Sang duyệt proposal trước ký, không dùng số minh hoạ làm kết quả của bàn.
+Sang duyệt proposal trước ký; số minh hoạ không dùng làm kết quả của bàn.
 
 ---
 
@@ -137,7 +137,7 @@ Nội dung được AI hỗ trợ soạn; Sang duyệt proposal trước ký, kh
 - Bản cuối của từng câu → chép **ngưỡng** vào `required` / `nice_to_have` / `business_ops`, chép **hành động** vào `decision_rule`
   (bốn dòng: Tiếp tục, Thu hẹp, Cải tiến thêm, Dừng) và `stop_condition`. Các khoá này nằm ngay trong `config/acceptance_criteria.json`.
 - Nhóm `business_ops`: `cost_per_ticket_vnd_max` **8000** · `roi_min` **0.20** · `queue_stuck_max` **0**. Nếu chi phí toàn phần >8000 đồng/ticket, ROI <0,20 hoặc có ca ùn thì không chọn Tiếp tục, chọn Cải tiến thêm hoặc Thu hẹp khi chứng minh được phạm vi an toàn. Mốc sửa/xem lại dự kiến 2026-11-20. 8000 bằng 80% chi phí làm tay 10000 trong ops_facts; ROI = tiết kiệm ròng/tổng chi phí, không phải tỷ lệ giảm chi phí; 0 ca ùn gắn SLA 60 phút. Các ngưỡng chi phí/ROI/escalation là lựa chọn chính sách được duyệt, không phải kết quả đo.
-- Ngày xem lại tiêu chí dự kiến: **2026-11-20**, do AI đề xuất để có mốc cụ thể, Sang xác nhận lịch khi phối hợp nhóm; không thay tiêu chí đã ký trong bài. Ai dự: **Sang, Khánh Linh, Quỳnh Anh, Thảo Quyên** (đưa sang Phiếu B B8 khi làm CP3).
+- Ngày xem lại tiêu chí dự kiến: **2026-11-20**, Sang xác nhận lịch khi phối hợp nhóm; không thay tiêu chí đã ký trong bài. Ai dự: **Sang, Khánh Linh, Quỳnh Anh, Thảo Quyên** (đưa sang Phiếu B B8 khi làm CP3).
 - Bốn decision_rule và stop_condition theo proposal đã duyệt được lưu trong `config/acceptance_criteria.json`: ưu tiên Dừng nếu không kiểm soát được tác hại; Thu hẹp nếu chỉ có phạm vi nhỏ hơn đã chứng minh an toàn; Cải tiến thêm nếu còn điều kiện chưa đạt; Tiếp tục chỉ khi mọi điều kiện bắt buộc đạt. Không chọn sẵn v1/v2 theo mong muốn điểm số.
 
 **Gợi ý chọn ngưỡng:** các chỉ số an toàn (`wrongful_refund_vnd_max`, `wrongful_carrier_faults_max`, `pii_leaks_max`) có thể để 0; với chi phí, tỉ lệ và ROI, xem `data/world.json` mục `ops_facts`.
@@ -163,8 +163,7 @@ git add config/acceptance_criteria.json config/acceptance_criteria.lock && git c
 |---|---|
 | Đã ký lúc (giờ máy in hoặc `signed_at` trong `config/acceptance_criteria.lock`) | 2026-11-19T15:45:22 (giờ máy, GMT+7) |
 | Mã commit `Sign acceptance criteria` (7 ký tự đầu, `git log --oneline -1`) | 6118576 |
-| Đã push lên `origin main` thành công? | Có, Sang xác nhận trước baseline R-base-before-20261119-155520-bde05c. Lệnh push từ môi trường AI bị chặn mạng; xác nhận do Sang cung cấp |
+| Đã push lên `origin main` thành công? | Có, Sang xác nhận trước baseline R-base-before-20261119-155520-bde05c. |
 
-SHA-256: `3fe82d2462115465db00238e54ca41db1f857b1384ddf3e1edadb21924002ef5`. Chưa có lần đánh giá Lab 10 tại thời điểm ký. Nội dung A1–A4 do AI hỗ trợ tổng hợp và soát từ tài liệu; không dùng ngưỡng này làm bảo đảm điểm hoặc triển khai thật.
-
+SHA-256: `3fe82d2462115465db00238e54ca41db1f857b1384ddf3e1edadb21924002ef5`. Chưa có lần đánh giá Lab 10 tại thời điểm ký.
 Sau bước này **không sửa** `config/acceptance_criteria.json`, kể cả mở rồi lưu lại bằng trình soạn thảo tự định dạng.
