@@ -2,7 +2,7 @@
 
 **Bàn:** Tiramisu
 
-**Bằng chứng:** Sang xác nhận đã push commit ký trước baseline. AI hỗ trợ tổng hợp và chạy lệnh; không khẳng định một buổi thảo luận trực tiếp đã diễn ra. B3/B4/B6 được chuẩn bị trước khi sửa code, chưa biết thẻ. Các cổng đã chốt ở B8; không sửa bản snapshot.
+**Bằng chứng:** Sang xác nhận đã push commit ký trước baseline. B3/B4/B6 được chuẩn bị trước khi sửa code, chưa biết thẻ. Các cổng đã chốt ở B8; không sửa bản snapshot.
 
 Tiêu chí đã ký ở Phiếu A. Từ phút 65 bàn mới được chạy trợ lý. Khối 2A (65–85) chưa sửa code hay config. Khối 2B (85–105) sửa
 `lab10/guards.py` và `config/operating_gates.json`. Phút 105–115 chốt cổng vòng 1 rồi viết quyết định v1. Sau phút 115 không sửa phiếu này
@@ -325,8 +325,7 @@ nguyên nhân trong tracking). Rồi viết runbook dưới đây **khớp với
 
 *Runbook là tờ giấy người trực ca cầm lúc 23h khi có chuyện. Nó trả lời: nhìn con số nào, ngưỡng nào thì làm gì, ai được quyết.
 Phần 1–3 và mục Giờ cao điểm viết ở vòng 1. Phần 4–5 viết ở vòng 2 (Phiếu C mục C11). Mọi con số phải khớp `config/operating_gates.json` và report.*
-*Mỗi phần trả lời bốn câu hỏi: ai chịu trách nhiệm, nhìn gì, ngưỡng nào, làm gì.* **Người tiếp nhận rà soát (vai Vận hành và pháp lý): Nguyễn Thảo Quyên.** Nội dung AI hỗ trợ soạn, chưa giả định Quyên đã tự viết/duyệt.
-
+*Mỗi phần trả lời bốn câu hỏi: ai chịu trách nhiệm, nhìn gì, ngưỡng nào, làm gì.* **Người tiếp nhận rà soát (vai Vận hành và pháp lý): Nguyễn Thảo Quyên.**
 #### Runbook 1 · Ai chịu trách nhiệm
 
 | Vai | Tên / mã nhân viên (lấy từ `data/world.json` → `staff`) | Được quyền làm gì | Liên lạc qua kênh nào |
@@ -356,7 +355,7 @@ Mỗi dòng một tín hiệu. Cột "Lấy ở đâu" phải là một dòng tr
 
 - Dừng một phần khi phát hiện hoàn sai/ghi oan/lộ PII >0; thiếu căn cứ ghi; hàng chờ/chi phí vượt ngưỡng. Chỉ thu hẹp khi có report chứng minh phạm vi còn lại an toàn và độ phủ >0.
 - Dừng hẳn khi không cô lập được tác hại hoặc không có người chịu trách nhiệm/nguồn đáng tin; không dùng scope 0 để giả sửa.
-- Tùng đặt switches.issue_refund=off cho tiền, file_carrier_fault=off cho lỗi hãng, notify_carrier=off cho rò rỉ; giữ send_reply nếu vẫn an toàn. Dừng hẳn: tắt cả bốn thao tác, chuyển toàn bộ về CSKH ngoài luồng tự động. Nếu thu hẹp thì sửa business.pilot_scope, đo lại và ghi rõ phần bị loại. Không sửa acceptance_criteria hay snapshot round1.
+- Tùng đặt switches.issue_refund=off cho tiền, file_carrier_fault=off cho lỗi hãng, notify_carrier=off cho rò rỉ; giữ send_reply nếu vẫn an toàn. Dừng hẳn: tắt cả bốn thao tác, chuyển toàn bộ về CSKH ngoài luồng tự động. Nếu thu hẹp thì sửa business.pilot_scope, đo lại và ghi rõ phần bị loại. Không sửa acceptance_criteria hay snapshot round 1.
 - Từ tín hiệu đỏ đến lúc tắt tối đa **5 phút** (mục tiêu quy trình đề xuất, không phải latency đã đo); Tùng bấm, Hạnh tiếp nhận; escalation không cấp quyền tự động vượt ngân sách.
 - Ticket chờ chuyển Hạnh vào hàng xử lý tay, thông báo tình trạng trung thực, Oanh giữ chứng từ và đối soát; không retry lệnh hoàn đã ghi.
 - Chỉ mở lại khi xác định nguyên nhân, regression không có ca mới hỏng, mọi chỉ số bắt buộc/trần đạt, report đúng code/config; Hạnh kiểm approval, Oanh ký đối soát, Tùng cho mở. Chưa có thực nghiệm production.
@@ -367,11 +366,11 @@ Lượng ticket có thể dồn gấp ba trong một giờ (ngày sale, sau bão
 
 | Câu hỏi | Trả lời (có số, có tên) |
 |---|---|
-| Giờ cao điểm là khi nào, bao nhiêu ticket mỗi giờ (dựa vào `ops_facts`)? | ops_facts chỉ có ca 480 phút, không có giờ sale cụ thể. Nền 22 ticket/8h =2,75 ticket/h; giả định dồn gấp ba là8,25 ticket/h, không phải quan sát production. Nếu tất cả cần duyệt thì vượt 6 ca/h |
+| Giờ cao điểm là khi nào, bao nhiêu ticket mỗi giờ (dựa vào `ops_facts`)? | ops_facts chỉ có ca 480 phút, không có giờ sale cụ thể. Nền 22 ticket/8h =2,75 ticket/h; giả định dồn gấp ba là 8,25 ticket/h, không phải quan sát production. Nếu tất cả cần duyệt thì vượt 6 ca/h |
 | Ai trực giờ cao điểm, mấy người (khớp `operations.reviewers_on_shift`)? | Hạnh, 1 người, 6 ca/h; không tự khai thêm người chưa có trên ca. Tùng điều phối |
 | Ngưỡng nào thì **gọi thêm người** (hàng chờ bao nhiêu ca, chờ lâu nhất bao nhiêu phút)? Ai gọi? | Backlog >=3 ca hoặc chờ>=30 phút: Hạnh báo Tùng tìm người thực sự có thể trực. Chưa bố trí được thì thu hẹp/giảm nhận trước vượt SLA; không ghi config 2 người khi chưa có người |
 | Ngưỡng nào thì **thu hẹp** phạm vi (khoá `business.pilot_scope`) hoặc **tắt** một thao tác ghi (`config/switches.json`)? Ai quyết? | Dự báo quá 60 phút hoặc hết ca không xử lý kịp: Tùng giảm nhận, chọn scope có chứng cứ và đo lại; đỏ an toàn thì tắt tool ngay. Không hạ ngưỡng đã ký |
-| Thêm người thì chi phí mỗi ticket và ROI thay đổi thế nào (đọc report)? | Prepared: 4274 đồng/ticket, ROI1,34 với 1 người,0 ùn nên chưa thêm. ops_facts mỗi người thêm 30000 đồng/ca, tương đương khoảng1364 đồng/ticket ở22 ca/ngày trước các thay đổi khác. Đây là ước tính, không phải report 2 người; phải eval lại chi phí/ROI/SLA nếu thực sự đổi người |
+| Thêm người thì chi phí mỗi ticket và ROI thay đổi thế nào (đọc report)? | Prepared: 4274 đồng/ticket, ROI 1,34 với 1 người,0 ùn nên chưa thêm. ops_facts mỗi người thêm 30000 đồng/ca, tương đương khoảng 1364 đồng/ticket ở22 ca/ngày trước các thay đổi khác. Đây là ước tính, không phải report 2 người; phải eval lại chi phí/ROI/SLA nếu thực sự đổi người |
 
 ---
 

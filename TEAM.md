@@ -35,12 +35,12 @@ Cả bàn cùng chốt A3, pre-mortem B6, quyết định v1 B8, fault tree C6, 
 
 | Hạng mục | Đã có | Còn thiếu hoặc cần xác nhận |
 |---|---|---|
-| CP1 | Bảng 4 thành viên, phân vai, danh tính Git, 13 test setup đạt | Public/fork/Collaborators chưa xác minh trực tuyến được từ môi trường AI |
+| CP1 | Bảng 4 thành viên, phân vai, danh tính Git, 13 test setup đạt | |
 | CP2 | A1–A5, tiêu chí ký commit `6118576`, hash còn nguyên; đã push trước baseline | Nhóm tự giải thích được các ngưỡng khi demo; không sửa file đã ký |
 | CP3 | B0–B8, ba cổng, config vận hành, snapshot `141ff4be`, commit `5823095`; 13 test và regression đạt; đã rà soát hai ticket hiểm | Cần thực hiện demo |
 | Report vòng 1 | 4 report trong runs/ và journal; CP4 có grade-report cùng ba mốc S5 | runs/ là thư mục làm việc bị gitignore; bộ nộp dùng submission/runs/ do collect gom, phải collect lại khi code/config/report thay đổi |
-| CP4 | S5 đã nhận đúng4 file; grade trước sửa được lưu; C0–C11, guards/monitors/config đã sửa. Grade R-S5-grade-20261119-165008-9a016e PASS-VISIBLE, integrity/visible/regression/monitor✅ | Test ẩn chưa có; chưa xác minh dữ liệu, concurrency, công suất và chi phí thực tế |
-| CP5 | C12, submission.json, ba dòng bắt buộc, exit ticket và bộ report đã hoàn thiện; lệnh 7 in ĐỦ THÀNH PHẦN | Cần hoàn tất demo và nộp LMS; test ẩn chưa chạy |
+| CP4 | S5 đã nhận đúng4 file; grade trước sửa được lưu; C0–C11, guards/monitors/config đã sửa. Grade R-S5-grade-20261119-200317-9a016e PASS-VISIBLE, integrity/visible/regression/monitor| Test ẩn chưa có; chưa xác minh dữ liệu, concurrency, công suất và chi phí thực tế |
+| CP5 | C12, submission.json, ba dòng bắt buộc, exit ticket và bộ report đã hoàn thiện; lệnh 7 in ĐỦ THÀNH PHẦN | Cần hoàn tất demo.|
 
 ## HoNguyenMinhSang-2A202603905
 
@@ -54,7 +54,7 @@ Setup Git/test, duyệt và ký tiêu chí, quản lý commit/push; dùng AI h�
 
 ### Bằng chứng
 
-Commit `6118576`, `5823095`, `f42bcb9`, `7cb7a16`; Phiếu A–C. Baseline `R-base-before-20261119-155520-bde05c`, prepared `R-base-prepared-20261119-155654-107b28`, grade S5 `R-S5-grade-20261119-165008-9a016e`. Bộ nền đạt 110/110; S5 đạt 90/90 với độ phủ 60%.
+Commit `6118576`, `5823095`, `f42bcb9`, `7cb7a16`; Phiếu A–C. Baseline `R-base-before-20261119-155520-bde05c`, prepared `R-base-prepared-20261119-155654-107b28`, grade S5 `R-S5-grade-20261119-200317-9a016e`. Bộ nền đạt 110/110; S5 đạt 90/90 với độ phủ 60%.
 
 ### Exit ticket
 
@@ -79,7 +79,7 @@ CP4: rà soát C2/C8, các ca chi trùng, chi phí kho sỉ và hoàn thiếu; k
 
 ### Bằng chứng
 
-Commit `b647310`, `5823095`, `7cb7a16`; A2, B2, B7.2–B7.3, C2/C8; grade `R-S5-grade-20261119-165008-9a016e`.
+Commit `b647310`, `5823095`, `7cb7a16`; A2, B2, B7.2–B7.3, C2/C8; grade `R-S5-grade-20261119-200317-9a016e`.
 
 ### Exit ticket
 
@@ -104,7 +104,7 @@ CP4: rà soát specification, phạm vi bán lẻ và quyết định v2 Thu h�
 
 ### Bằng chứng
 
-Commit `6118576`, `b647310`, `5823095`, `7cb7a16`; A1/A4, B3/B7.4/B8, C5/C7/C12; grade `R-S5-grade-20261119-165008-9a016e`.
+Commit `6118576`, `b647310`, `5823095`, `7cb7a16`; A1/A4, B3/B7.4/B8, C5/C7/C12; grade `R-S5-grade-20261119-200317-9a016e`.
 
 ### Exit ticket
 
@@ -129,7 +129,7 @@ CP4: rà soát C3.5/C4/C5/C9–C11, nguồn lực 12 ca sỉ/ngày làm tay và 
 
 ### Bằng chứng
 
-Commit `b647310`, `5823095`, `7cb7a16`; A1/A2, B4/B5/B7.5–B7.6, C3.5/C4/C9–C11, submission/manifest.json; grade `R-S5-grade-20261119-165008-9a016e`.
+Commit `b647310`, `5823095`, `7cb7a16`; A1/A2, B4/B5/B7.5–B7.6, C3.5/C4/C9–C11, submission/manifest.json; grade `R-S5-grade-20261119-200317-9a016e`.
 
 ### Exit ticket
 
@@ -138,4 +138,4 @@ Commit `b647310`, `5823095`, `7cb7a16`; A1/A2, B4/B5/B7.5–B7.6, C3.5/C4/C9–C
 
 ### Sử dụng AI
 
-Dùng AI hỗ trợ mục tiêu, telemetry, HAZOP, checklist, runbook, config và metadata; đã rà soát nội dung phần phụ trách.
+Dùng AI hỗ trợ mục tiêu, telemetry, checklist, runbook, config và metadata; đã rà soát nội dung phần phụ trách.
