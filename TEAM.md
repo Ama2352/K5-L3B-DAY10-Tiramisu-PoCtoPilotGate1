@@ -45,11 +45,11 @@ Trưởng nhóm, Kỹ sư cổng 1: setup CP1, ký tiêu chí CP2; tiếp nhận
 
 ### Đóng góp cụ thể
 
-CP1: thông tin nhóm, cấu hình Git và kiểm thử setup. CP2: duyệt proposal tiêu chí, cho phép AI hoàn thiện Phiếu A và ký tiêu chí; chưa chạy eval/grade. Dùng AI để đọc PRD/eval card Lab 9, soạn và sửa proposal/Phiếu A, kiểm tra JSON, chạy test, ký và tạo commit. Chưa push thành công từ môi trường AI do mạng bị chặn.
+CP1: thông tin nhóm, cấu hình Git và kiểm thử setup. CP2: duyệt proposal tiêu chí, cho phép AI hoàn thiện Phiếu A và ký tiêu chí; xác nhận commit ký đã push trước eval. CP3: cho phép AI hỗ trợ trace, thiết kế/viết ba cổng, config vận hành, Phiếu B, chạy baseline/after/prepared, checkpoint và kiểm regression. Dùng AI để đọc PRD/eval card, soạn phiếu, kiểm JSON, chạy test, tạo commit. Không gán phần AI đã thực hiện thành đóng góp tự làm của các bạn; từng người cần rà soát và trình bày phần được giao. Push từ môi trường AI vẫn bị chặn mạng.
 
 ### Bằng chứng
 
-CP1: `a5abcf1`. CP2: `6118576` (`Sign acceptance criteria`), Phiếu A A1–A5, `config/acceptance_criteria.lock`. Chưa có mã lần chạy; không ghi kết quả chưa đo.
+CP1: `c4069c0` theo lịch sử hiện tại. CP2: `6118576` (`Sign acceptance criteria`), Phiếu A A1–A5, `config/acceptance_criteria.lock`. CP3: B0–B8, run base `R-base-before-20261119-155520-bde05c`, prepared `R-base-prepared-20261119-155654-107b28`, round1 hash `141ff4be`. CP4/CP5 chưa hoàn thành vì chưa có số thẻ Coach giao.
 
 ### Exit ticket
 

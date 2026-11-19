@@ -1,8 +1,13 @@
 {
-  "team": "",
-  "members": [],
+  "team": "K5-L3B-DAY10-Tiramisu-PoCtoPilotGate1",
+  "members": [
+    "HoNguyenMinhSang-2A202603905",
+    "NguyenThiKhanhLinh-2A202603845",
+    "VuNgocQuynhAnh-2A202603875",
+    "NguyenThaoQuyen-2A202603895"
+  ],
   "incident": "",
-  "decision_v1": "",
+  "decision_v1": "Tiếp tục",
   "decision_v2": "",
   "three_lines": {
     "environment_assumption": "",

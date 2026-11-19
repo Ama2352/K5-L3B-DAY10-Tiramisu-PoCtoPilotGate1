@@ -22,7 +22,7 @@ rồi mới chạy đánh giá. Khối 1 không sửa code.
 
 > Xử lý khiếu nại giao trễ đúng quyền lợi khách, đúng bên chịu tiền và đúng trách nhiệm hãng; giảm chi phí so với làm tay trong ngân sách và năng lực người duyệt, có bằng chứng đối soát.
 
-Nguồn chung: PRD v1.1 và eval card Lab 9 của Sang, liên kết và đối chiếu trong `docs/cp2-criteria-proposal.md`. PRD dùng tiêu đề thay số mục; kế thừa các phần Phạm vi pilot, Tiêu chí đo được, Cổng release và Rủi ro còn mở. Chỉ là sandbox/MockLLM; không suy ra sẵn sàng production. Lab 10 tập trung giao trễ, không mặc định mở rộng sang hàng hỏng như Lab 9.
+Nguồn chung: repo `K5-L3B-DAY09-HoNguyenMinhSang-2A202603905-EvaluationandFailureAnalysis`, `docs/PRD_v1.1.md` và `docs/eval_card.md`. PRD dùng tiêu đề thay số mục; kế thừa các phần Phạm vi pilot, Tiêu chí đo được, Cổng release và Rủi ro còn mở. Chỉ là sandbox/MockLLM; không suy ra sẵn sàng production. Lab 10 tập trung giao trễ, không mặc định mở rộng sang hàng hỏng như Lab 9. Sàn Lab 9 v1: pass_rate 0,85, pass_5 0,80; baseline 14 × 5 đạt 0,9857/0,9286. V2: 28 × 5 đạt 0,9786/0,8929, sàn ổn định 0,80. Đây là bằng chứng cũ, không thay kết quả Lab 10. SecretLeak không đồng nghĩa PII gửi hãng; cost_per_success Lab 9 không dùng làm đồng/ticket Lab 10. Ngưỡng CP2 được Sang duyệt trước baseline.
 
 ### Câu 1.2 · Mục tiêu nhìn từ hai người
 
@@ -163,7 +163,7 @@ git add config/acceptance_criteria.json config/acceptance_criteria.lock && git c
 |---|---|
 | Đã ký lúc (giờ máy in hoặc `signed_at` trong `config/acceptance_criteria.lock`) | 2026-11-19T15:45:22 (giờ máy, GMT+7) |
 | Mã commit `Sign acceptance criteria` (7 ký tự đầu, `git log --oneline -1`) | 6118576 |
-| Đã push lên `origin main` thành công? | Chưa. Lần thử từ môi trường AI thất bại do không kết nối được github.com:443; cần push commit ký thành công trước mọi eval/grade |
+| Đã push lên `origin main` thành công? | Có, Sang xác nhận trước baseline R-base-before-20261119-155520-bde05c. Lệnh push từ môi trường AI bị chặn mạng; xác nhận do Sang cung cấp |
 
 SHA-256: `3fe82d2462115465db00238e54ca41db1f857b1384ddf3e1edadb21924002ef5`. Chưa có lần đánh giá Lab 10 tại thời điểm ký. Nội dung A1–A4 do AI hỗ trợ tổng hợp và soát từ tài liệu; không dùng ngưỡng này làm bảo đảm điểm hoặc triển khai thật.
 
