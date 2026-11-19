@@ -22,22 +22,35 @@ Ghi `members` trong `submission/submission.json` theo dạng `"HoVaTen-MSSV"`, k
 
 ## Cá nhân
 
+### Phân công rà soát và trình bày CP1–CP5
+
+Bảng dưới phân công trách nhiệm tiếp nhận, kiểm tra và trình bày sản phẩm; không khẳng định các thành viên đã tự thực hiện phần do AI hỗ trợ. Mỗi người tự xác nhận đóng góp thực tế, bằng chứng, việc dùng AI và exit ticket trước khi nộp.
+
+| Thành viên | CP1–CP2 | CP3 | CP4 | CP5 |
+|---|---|---|---|---|
+| Hồ Nguyễn Minh Sang | Setup, kiểm tra Git/test, soát tiêu chí kỹ thuật, ký và push sau khi nhóm chốt | Baseline, cổng code, checkpoint và report prepared; B0, B1, B7.1 | Đọc report trước sửa, sửa cổng và chạy đánh giá/regression; C0, C1, C7 phần code | Kiểm integrity, gom bài, kiểm manifest và push; demo ba mốc |
+| Nguyễn Thị Khánh Linh | Metric offline A2; giải thích pass_rate, pass^k, pass@k | Trace, phân loại lỗi, tránh rò rỉ dữ liệu và behavioral test; B2, B7.2, B7.3 | Trace hai kiểu lỗi, chỉ số mới và kiểm report; C2, C8 | Chuẩn bị ticket hiểm, bảng so sánh và bằng chứng kỹ thuật |
+| Vũ Ngọc Quỳnh Anh | Mục tiêu hệ thống, ngưỡng và decision_rule; A1 câu 1.1, A4 | Bản đồ dữ liệu, drift, config business; B3, B7.4, bằng chứng kinh doanh B8 | Specification, sửa business, phân biệt giảm/ngăn tác hại; C5, C7 phần business | Chủ trì C12 và quyết định v2 dựa trên report; trình bày chi phí/ROI |
+| Nguyễn Thảo Quyên | Mục tiêu kế toán/người duyệt, telemetry; A1 câu 1.2, A2 production | HAZOP, checklist PIC, config operations/legal, runbook; B4, B5, B7.5, B7.6 | Phần riêng thẻ, HAZOP, giả định, risk register và runbook; C3, C4, C5, C9–C11 | Soát submission.json, đủ tài liệu và thông tin thành viên; trình bày vận hành |
+
+Cả bàn cùng chốt A3, pre-mortem B6, quyết định v1 B8, fault tree C6, quyết định v2 C12 và phản biện demo. Mỗi thành viên tự viết mục cá nhân và tự nộp link trên LMS.
+
 Mỗi thành viên tự viết một mục bên dưới (chép mẫu, đổi tiêu đề thành họ tên không dấu và MSSV, ví dụ `## NguyenVanAn-20241234`).
 
-## HoVaTen-MSSV
+## HoNguyenMinhSang-2A202603905
 
 ### Phần việc phụ trách
 
-Vai trong bàn; câu nào của đề, mục nào của phiếu A/B/C, file nào (`lab10/guards.py`, `config/operating_gates.json`, …).
+Trưởng nhóm, Kỹ sư cổng 1: setup CP1, ký tiêu chí CP2; tiếp nhận cổng và các lệnh đánh giá/chốt/gom bài CP3–CP5 theo phân công phía trên. Chỉ phần đã có bằng chứng bên dưới được tính là đã thực hiện.
 
 ### Đóng góp cụ thể
 
-...
+CP1: thông tin nhóm, cấu hình Git và kiểm thử setup. CP2: duyệt proposal tiêu chí, cho phép AI hoàn thiện Phiếu A và ký tiêu chí; chưa chạy eval/grade. Dùng AI để đọc PRD/eval card Lab 9, soạn và sửa proposal/Phiếu A, kiểm tra JSON, chạy test, ký và tạo commit. Chưa push thành công từ môi trường AI do mạng bị chặn.
 
 ### Bằng chứng
 
-Mã commit, mã lần chạy (`runs/<mã>`), dòng trong phiếu.
+CP1: `a5abcf1`. CP2: `6118576` (`Sign acceptance criteria`), Phiếu A A1–A5, `config/acceptance_criteria.lock`. Chưa có mã lần chạy; không ghi kết quả chưa đo.
 
 ### Exit ticket
 
-Một điều học được, một điều còn chưa chắc.
+Sang tự bổ sung một điều học được và một điều còn chưa chắc sau khi hoàn tất bài; AI không viết thay trải nghiệm cá nhân.
