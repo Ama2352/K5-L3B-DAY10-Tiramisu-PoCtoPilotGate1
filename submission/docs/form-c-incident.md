@@ -477,3 +477,26 @@ Cột v1 nằm ở Phiếu B mục B8; không sửa cột đó.
 1. Thiết kế giả định ledger phản ánh đủ khoản hoàn tay và tự động trước mỗi lần ghi; đồng bộ chậm hoặc worker đồng thời ngoài thực tế có thể làm giả định này sai.
 2. Gate ngăn ghi vượt quyền lợi và retry cùng ticket trong mock tuần tự, đồng thời loại 12 ca kho sỉ/ngày khỏi AI; ngoài thực tế chỉ giảm rủi ro khi chưa chứng minh transaction, nguồn dữ liệu và định tuyến.
 3. Trước Gate 2 cần đo chi phí toàn luồng gồm 12 ca tay/ngày, độ trễ đồng bộ ledger và ghi đồng thời, năng lực duyệt giờ cao điểm, chất lượng model thật và mẫu held-out có nhãn người.
+
+### Kiểm tra cuối CP5
+
+- Grade: `R-S5-grade-20261119-200317-9a016e`, PASS-VISIBLE; integrity, visible, regression và monitor đều đạt.
+- Ba mốc S5: base `R-S5-before-20261119-200319-9a016e`; prepared `R-S5-prepared-20261119-200320-9a016e`; after `R-S5-after-20261119-200320-9a016e`.
+- Quyết định giữ **Thu hẹp**: S5 đạt 90/90 ở độ phủ60%, nền đạt110/110; các ngưỡng bắt buộc và kinh doanh/vận hành đều đạt.
+
+### Trình tự demo CP5 (4 phút)
+
+1. **Sang:** trình bày ba mốc; base hoàn sai890000 đồng/150trial và20 lỗi oan; prepared chặn tác hại nhưng còn hoàn thiếu60000 đồng/150trial; after sửa phần còn lại và không regression. Mở report ba mốc trong submission/runs/.
+2. **Khánh Linh:** chạy hai ticket hiểm B7.3 và ca hoàn một phần; chỉ sổ cái, payload hãng và monitor chi phí theo kho.
+3. **Quỳnh Anh:** giải thích Thu hẹp; chỉ giữ bốn kho bán lẻ,12 ca sỉ/ngày đi tay. Phân biệt chi phí3980/ROI1,51 trong scope với6388,10/ROI0,57 toàn luồng.
+4. **Thảo Quyên:** trình bày Hạnh duyệt, Tùng giữ công tắc, Oanh đối soát;1 người6 ca/giờ, SLA60 phút, nguồn lực phần xử lý tay và điều kiện dừng.
+
+Lệnh chạy ca hoàn một phần:
+
+```powershell
+python -m lab10.trace --suite S5 --ticket S5-21 --seed 11 --stage after
+```
+
+Kết quả cần chỉ: quyền lợi22000, đã trả10000, ghi thêm12000; lời trả lời khớp khoản thực ghi. Với hai ticket B7.3, dùng nguyên nội dung và order/customer đã lưu.
+
+Nếu phản biện có đổi code/config, trả về bản quyết định cuối rồi chạy lại `python -m lab10.grade --incident S5` và `python -m lab10.check_submission --collect` trước khi commit/push. Mỗi thành viên nộp link repo trên LMS.

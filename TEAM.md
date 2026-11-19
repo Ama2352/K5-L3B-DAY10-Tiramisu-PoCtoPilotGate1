@@ -20,7 +20,7 @@
 
 ### Phân công rà soát và trình bày CP1–CP5
 
-Các thành viên đã xác nhận phân công, đóng góp và sử dụng AI; đã rà soát nội dung và hai ticket hiểm B7.3. Mỗi người cần bổ sung exit ticket trước khi nộp.
+Các thành viên đã xác nhận phân công, đóng góp và sử dụng AI; đã rà soát nội dung và hai ticket hiểm B7.3.
 
 | Thành viên | CP1–CP2 | CP3 | CP4 | CP5 |
 |---|---|---|---|---|
@@ -40,7 +40,7 @@ Cả bàn cùng chốt A3, pre-mortem B6, quyết định v1 B8, fault tree C6, 
 | CP3 | B0–B8, ba cổng, config vận hành, snapshot `141ff4be`, commit `5823095`; 13 test và regression đạt; đã rà soát hai ticket hiểm | Cần thực hiện demo |
 | Report vòng 1 | 4 report trong runs/ và journal; CP4 có grade-report cùng ba mốc S5 | runs/ là thư mục làm việc bị gitignore; bộ nộp dùng submission/runs/ do collect gom, phải collect lại khi code/config/report thay đổi |
 | CP4 | S5 đã nhận đúng4 file; grade trước sửa được lưu; C0–C11, guards/monitors/config đã sửa. Grade R-S5-grade-20261119-165008-9a016e PASS-VISIBLE, integrity/visible/regression/monitor✅ | Test ẩn chưa có; chưa xác minh dữ liệu, concurrency, công suất và chi phí thực tế |
-| CP5 | C12 và submission.json có v2 Thu hẹp,3 dòng; chi phí toàn luồng đã tính cả12 ca sỉ/ngày làm tay; lệnh7 in ĐỦ THÀNH PHẦN | Cần hoàn tất demo, exit ticket và nộp LMS; test ẩn chưa chạy |
+| CP5 | C12, submission.json, ba dòng bắt buộc, exit ticket và bộ report đã hoàn thiện; lệnh 7 in ĐỦ THÀNH PHẦN | Cần hoàn tất demo và nộp LMS; test ẩn chưa chạy |
 
 ## HoNguyenMinhSang-2A202603905
 
@@ -58,7 +58,8 @@ Commit `6118576`, `5823095`, `f42bcb9`, `7cb7a16`; Phiếu A–C. Baseline `R-ba
 
 ### Exit ticket
 
-Cần bổ sung một điều học được và một điều còn chưa chắc.
+- Điều học được: Cổng ghi tiền phải đối chiếu policy, tracking và ledger; điểm pass cao vẫn có thể che khoản hoàn sai.
+- Điều còn chưa chắc: Kiểm tra ledger trước ghi có còn an toàn khi nhiều worker xử lý cùng đơn đồng thời hay không.
 
 ### Sử dụng AI
 
@@ -82,7 +83,8 @@ Commit `b647310`, `5823095`, `7cb7a16`; A2, B2, B7.2–B7.3, C2/C8; grade `R-S5-
 
 ### Exit ticket
 
-Cần bổ sung một điều học được và một điều còn chưa chắc.
+- Điều học được: Monitor cần có công thức và nguồn dữ liệu rõ ràng; chỉ số ghi lặp trong một ticket không thay thế được đối soát toàn bộ tiền hoàn sai.
+- Điều còn chưa chắc: Ngưỡng cảnh báo chi phí theo kho có ổn định khi giá LLM và phân bố ticket thực tế thay đổi hay không.
 
 ### Sử dụng AI
 
@@ -106,7 +108,8 @@ Commit `6118576`, `b647310`, `5823095`, `7cb7a16`; A1/A4, B3/B7.4/B8, C5/C7/C12;
 
 ### Exit ticket
 
-Cần bổ sung một điều học được và một điều còn chưa chắc.
+- Điều học được: Chi phí bình quân và ROI toàn tập có thể che kho thua lỗ; quyết định Thu hẹp phải tính cả chi phí xử lý tay ngoài phạm vi.
+- Điều còn chưa chắc: Kho sỉ có thể đạt hiệu quả kinh tế nếu thay đổi quy trình phê duyệt trước khi trợ lý đọc ticket hay không.
 
 ### Sử dụng AI
 
@@ -130,7 +133,8 @@ Commit `b647310`, `5823095`, `7cb7a16`; A1/A2, B4/B5/B7.5–B7.6, C3.5/C4/C9–C
 
 ### Exit ticket
 
-Cần bổ sung một điều học được và một điều còn chưa chắc.
+- Điều học được: Runbook phải khớp số người, công suất và SLA trong config; chuyển ticket về làm tay vẫn cần người chịu trách nhiệm và ngân sách.
+- Điều còn chưa chắc: Một người duyệt có đáp ứng được tải cao điểm khi xử lý chung ca từ trợ lý và ca kho sỉ hay không.
 
 ### Sử dụng AI
 
