@@ -6,12 +6,12 @@
     "VuNgocQuynhAnh-2A202603875",
     "NguyenThaoQuyen-2A202603895"
   ],
-  "incident": "",
+  "incident": "S5",
   "decision_v1": "Tiếp tục",
-  "decision_v2": "",
+  "decision_v2": "Thu hẹp",
   "three_lines": {
-    "environment_assumption": "",
-    "reduce_or_prevent": "",
-    "measure_in_pilot": ""
+    "environment_assumption": "Thiết kế giả định ledger phản ánh đủ khoản hoàn tay và tự động trước mỗi lần ghi; đồng bộ chậm hoặc worker đồng thời ngoài thực tế có thể làm giả định này sai.",
+    "reduce_or_prevent": "Gate ngăn ghi vượt quyền lợi và retry cùng ticket trong mock tuần tự, đồng thời loại 12 ca kho sỉ/ngày khỏi AI; ngoài thực tế chỉ giảm rủi ro khi chưa chứng minh transaction, nguồn dữ liệu và định tuyến.",
+    "measure_in_pilot": "Trước Gate 2 cần đo chi phí toàn luồng gồm 12 ca tay/ngày, độ trễ đồng bộ ledger và ghi đồng thời, năng lực duyệt giờ cao điểm, chất lượng model thật và mẫu held-out có nhãn người."
   }
 }

@@ -1,0 +1,14 @@
+# Preserve the bytes used by signed hashes and submission manifests on checkout.
+* text=auto eol=crlf
+
+# Locked upstream files are hashed with LF in the supplied MANIFEST.
+/data/** text eol=lf
+/lab10/** text eol=lf
+/tests/** text eol=lf
+/incidents/S5/** text eol=lf
+
+# These team files and round-one snapshots were signed/evaluated on Windows.
+/lab10/guards.py text eol=crlf
+/lab10/monitors.py text eol=crlf
+/lab10/guards_round1.py text eol=crlf
+/.gitattributes text eol=lf

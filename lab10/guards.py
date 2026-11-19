@@ -60,9 +60,15 @@ def write_gate(ctx, action):
         entitlement = H.entitlement_vnd(policy, order, delay, parcel.get("delay_cause"))
         previous = ctx.tools.ledger_rows(order_id=order["order_id"])
         paid = sum(row["amount_vnd"] for row in previous)
-        if amount + paid > entitlement:
+        if any(row.get("ticket_id") == ctx.ticket.get("ticket_id") for row in previous):
+            return Verdict.deny("ticket đã có khoản hoàn ghi thành công, không retry ghi tiền")
+        remaining = max(0, entitlement - paid)
+        if remaining == 0:
             ctx.log("refund_evidence_mismatch", asked=amount, paid=paid, entitlement=entitlement)
-            return Verdict.deny("số tiền hoặc khoản lặp vượt quyền lợi theo tracking/policy/sổ cái")
+            return Verdict.deny("không còn quyền lợi chưa chi theo tracking/policy/sổ cái")
+        if amount > remaining and not paid:
+            return Verdict.deny("đề xuất vượt quyền lợi theo tracking/policy")
+        amount = min(amount, remaining)
         if action.get("payer", "LOGIX") != "LOGIX":
             return Verdict.escalate("chưa có căn cứ trừ tiền bên thứ ba")
         approval_id = action.get("approval_id")
@@ -80,6 +86,9 @@ def write_gate(ctx, action):
                 return Verdict.escalate("phê duyệt không đúng phạm vi/hiệu lực hoặc đã dùng")
         elif amount > policy["auto_limit_vnd"]:
             return Verdict.escalate("vượt hạn mức policy mà chưa có phê duyệt hợp lệ")
+        if amount != action.get("amount_vnd"):
+            ctx.log("refund_remaining", entitlement=entitlement, paid=paid, remaining=remaining)
+            return Verdict.modify("chỉ hoàn phần quyền lợi còn thiếu", amount_vnd=amount)
 
     # Gate 3 (B6 legal): evidence for strikes; minimise third-party disclosure.
     if tool == "file_carrier_fault":

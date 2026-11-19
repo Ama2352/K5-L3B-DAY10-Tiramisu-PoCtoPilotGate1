@@ -1,0 +1,34 @@
+{
+ "collected_at": "2026-11-19T17:10:44",
+ "incident": "S5",
+ "run_ids": {
+  "base": "R-S5-before-20261119-165009-9a016e",
+  "prepared": "R-S5-prepared-20261119-165009-9a016e",
+  "after": "R-S5-after-20261119-165009-9a016e"
+ },
+ "grade_run_id": "R-S5-grade-20261119-165008-9a016e",
+ "criteria_hash": "3fe82d2462115465db00238e54ca41db1f857b1384ddf3e1edadb21924002ef5",
+ "round1_hash": "141ff4be3aadf14c15523e030f5cf9ec6943019743f5595ac209e725394798f0",
+ "code_hash": "9a016e65e25907e87f20281bac3233a1b61fffcdba1e6035d9a052879063268b",
+ "files": {
+  "code/guards.py": "91dd913d49220e9c5c1cf26ca5838f36010adfd758d62752d5a06466397f045c",
+  "code/guards_round1.py": "f7be166a0bc7206278fb9e041f0d8d319a34dfa8bba1ba86e142e36b606d7966",
+  "code/monitors.py": "50ebab916e919694a8626704447815dfdb256de455cad0373f601a403d77e14c",
+  "config/acceptance_criteria.json": "3fe82d2462115465db00238e54ca41db1f857b1384ddf3e1edadb21924002ef5",
+  "config/acceptance_criteria.lock": "50149e77b5854179e730a72d9c057ea5ed6bbf18ae1bf62fe76f8bcd50d790fc",
+  "config/operating_gates.json": "f3208be54b8132a64d325f6d6f28b012db9e7e09fd681b8ba6f3595f582e202c",
+  "config/operating_gates.round1.json": "bf5ca60a1e35e05f77fad3c57ac32eb0a12d44fb4c180ed5a8da0b4c17de24a6",
+  "config/round1.lock": "c96f86332a3fc1421a7652e981bc1b02cfda8ef3d5ac58e122f54a25eb628eb2",
+  "config/switches.json": "9fcdb809437346392c6ded442f4f562c357ef89a7688a454505f94bcd969866b",
+  "docs/form-a-criteria.md": "9b80e619936eb9b1b388e3bd2024f652cf4d4ae235fb63e3aa0956da2e2d5c12",
+  "docs/form-b-evaluation-gates.md": "7aa9b6ca1a98c003be6118bd7dcd5c1e47e5a9357569145fb94614fb7e6f1e7f",
+  "docs/form-c-incident.md": "0d25e30c648ec4ba3faef97199c0c4b3266af6e1ee501a85d2783108bf77caab",
+  "runs/grade-report.json": "b59503e4b43e03cfedf449c8d89f3e6967c8464292f52fd80b18abe53f54ba3e",
+  "runs/grade-report.md": "09ea7156bff06de3bd19ea3f54848539c7df92af6f3a9eff111c865ad196c738",
+  "runs/journal.jsonl": "9aeb98a8921ffd401d35db9bdf979027f3e34d14466ce0a952dde10ca70f953e",
+  "runs/R-S5-after-20261119-165009-9a016e/report.json": "b981ccaad5ab3a56e5fa17892448c8c9eeee5ec36a98b82a20f247077c339aad",
+  "runs/R-S5-before-20261119-165009-9a016e/report.json": "99c1b9a870530e6ad4bac086a00f184b0b13e9cb12cb641574777e63c5ce8bcd",
+  "runs/R-S5-prepared-20261119-165009-9a016e/report.json": "acc9cf71058fd8c66683c96218cae5404f46c2d06ca16b4d589c03e35774fac5",
+  "submission.json": "b8169c5853a3ab226df8b916dde6ea0e3f321cf2c4b25a135f7835aca738eefa"
+ }
+}
