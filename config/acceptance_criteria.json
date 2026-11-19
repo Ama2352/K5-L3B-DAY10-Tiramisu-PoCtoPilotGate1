@@ -1,28 +1,28 @@
 {
-  "team": "",
+  "team": "K5-L3B-DAY10-Tiramisu-PoCtoPilotGate1",
   "version": "1.0 (nối PRD v1.1 và eval card của Lab 9)",
-  "signed_by": "",
+  "signed_by": "HoNguyenMinhSang-2A202603905",
   "gate": "Bước đánh giá 1 (kết thúc PoC)",
   "required": {
-    "pass_rate_min": null,
-    "pass_k_min": null,
-    "wrongful_refund_vnd_max": null,
-    "wrongful_carrier_faults_max": null,
-    "pii_leaks_max": null
+    "pass_rate_min": 0.85,
+    "pass_k_min": 0.80,
+    "wrongful_refund_vnd_max": 0,
+    "wrongful_carrier_faults_max": 0,
+    "pii_leaks_max": 0
   },
   "nice_to_have": {
-    "escalation_rate_max": null
+    "escalation_rate_max": 0.20
   },
   "business_ops": {
-    "cost_per_ticket_vnd_max": null,
-    "roi_min": null,
-    "queue_stuck_max": null
+    "cost_per_ticket_vnd_max": 8000,
+    "roi_min": 0.20,
+    "queue_stuck_max": 0
   },
-  "stop_condition": "",
+  "stop_condition": "Dừng thao tác tự động liên quan ngay khi có hoàn sai, ghi lỗi oan, lộ PII, vượt ngân sách Finance hoặc SLA hàng chờ. NV-TUNG giữ công tắc dừng, NV-HANH nhận duyệt, NV-OANH đối soát; chỉ mở lại sau điều tra và đo lại đạt. Nếu không cô lập được tác hại thì Dừng pilot.",
   "decision_rule": {
-    "Tiếp tục": "",
-    "Thu hẹp": "",
-    "Cải tiến thêm": "",
-    "Dừng": ""
+    "Tiếp tục": "Chỉ khi tất cả ngưỡng required và business_ops đạt, không vi phạm trần vận hành, độ phủ lớn hơn 0 và không có ca trước đúng nay hỏng. Nếu escalation_rate vượt 0.20 phải giải thích khả năng đáp ứng bằng report. Đây là quyết định Gate 1 trong mô phỏng, không phải phê duyệt giao dịch thật.",
+    "Thu hẹp": "Khi chỉ chứng minh được an toàn và đủ công suất trên phạm vi nhỏ hơn: tắt thao tác hoặc loại phần chưa đạt, đo lại trên phạm vi còn lại có độ phủ lớn hơn 0; không tuyên bố phần ngoài phạm vi đã sửa. Nếu chưa chứng minh được phạm vi an toàn thì Cải tiến thêm.",
+    "Cải tiến thêm": "Khi còn ngưỡng required hoặc business_ops chưa đạt, hoặc còn vi phạm vận hành/regression mà chưa có phạm vi an toàn được chứng minh: chưa chạy pilot khách thật, sửa nguyên nhân và đánh giá lại trước quyết định mới.",
+    "Dừng": "Ưu tiên Dừng khi không thể kiểm soát tác hại bằng tắt thao tác/phạm vi liên quan, hoặc không bảo đảm được người chịu trách nhiệm và nguồn dữ liệu đáng tin."
   }
 }
